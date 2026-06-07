@@ -1,1 +1,70 @@
-TRANSCRIB
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRANSCRIB | TRANSCRIB</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        .lang-ru, .lang-en { display: none; }
+        .switcher { margin: 20px; }
+    </style>
+</head>
+<body>
+
+    <!-- Русская версия -->
+    <div class="lang-ru">
+        <h1>Это сайт программы TRANSCRIB</h1>
+        <p>Добро пожаловать на мой сайт!</p>
+    </div>
+
+    <!-- Английская версия -->
+    <div class="lang-en">
+        <h1>This is website TRANSCRIB program</h1>
+        <p>Welcome to my site!</p>
+    </div>
+
+    <!-- Переключатель языка -->
+    <div class="switcher">
+        <button onclick="switchLanguage('ru')">Русский</button>
+        <button onclick="switchLanguage('en')">English</button>
+    </div>
+
+    <script>
+        function detectLanguage() {
+            const lang = navigator.language || navigator.userLanguage || 'ru';
+            
+            // Если язык начинается с "en" (английский и все его варианты)
+            if (lang.startsWith('en')) {
+                showLanguage('en');
+            } else {
+                showLanguage('ru'); // по умолчанию русский
+            }
+        }
+
+        function showLanguage(lang) {
+            document.querySelectorAll('.lang-ru, .lang-en').forEach(el => {
+                el.style.display = 'none';
+            });
+            document.querySelector(`.lang-${lang}`).style.display = 'block';
+        }
+
+        function switchLanguage(lang) {
+            showLanguage(lang);
+            // Можно сохранить выбор в localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Автоматическое определение при загрузке
+        window.onload = () => {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                showLanguage(savedLang);
+            } else {
+                detectLanguage();
+            }
+        };
+    </script>
+
+</body>
+</html>
