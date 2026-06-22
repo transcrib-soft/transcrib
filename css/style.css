@@ -398,3 +398,10 @@ body {
   .features-grid { grid-template-columns: 1fr; }
   .gallery-thumbs { grid-template-columns: repeat(2, 1fr); }
 }
+.emoji-button-render {
+  display: inline-block;
+  font-size: 3rem; /* Регулирует размер эмодзи, сделайте больше/меньше при необходимости */
+  padding: 10px;
+  line-height: 1;
+  user-select: none;
+}
