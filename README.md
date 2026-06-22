@@ -23,4 +23,4 @@ Business Source License 1.1
 
 ## Сайт
 
-Сайт проекта доступен на GitHub Pages: [ваш-аккаунт.github.io/transcrib](https://ваш-аккаунт.github.io/transcrib)
+Сайт проекта доступен на GitHub Pages: (https://transcrib-soft.github.io/transcrib/)
