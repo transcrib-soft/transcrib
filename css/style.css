@@ -242,7 +242,12 @@ body {
 .gallery {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
+}
+
+.gallery-item {
+  text-align: center;
 }
 
 .gallery-item img {
@@ -259,38 +264,53 @@ body {
 }
 
 .gallery-thumbs {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .gallery-thumbs figure {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 140px;
 }
 
-.gallery-thumbs img {
+.gallery-thumbs figure img {
+  display: block;
   max-width: 100%;
   max-height: 80px;
   border-radius: 6px;
   border: 1px solid var(--border);
+  object-fit: contain;
+}
+
+.gallery-thumbs figcaption {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.2;
 }
 
 .gallery-buttons {
   display: flex;
-  gap: 16px;
+  gap: 24px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 16px;
 }
 
 .gallery-buttons figure {
   text-align: center;
-  max-width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
 .gallery-buttons img {
-  max-width: 100%;
-  max-height: 40px;
+  max-height: 36px;
   border-radius: 4px;
   border: 1px solid var(--border);
 }
@@ -298,13 +318,11 @@ body {
 .gallery-buttons figcaption {
   font-size: 0.75rem;
   color: var(--text-muted);
-  margin-top: 4px;
 }
 
-.gallery-thumbs figcaption {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-top: 4px;
+.emoji-placeholder {
+  font-size: 2rem;
+  line-height: 1;
 }
 
 /* Requirements */
@@ -396,41 +414,5 @@ body {
   .step-arrow { display: none; }
   .nav-links { display: none; }
   .features-grid { grid-template-columns: 1fr; }
-  .gallery-thumbs { grid-template-columns: repeat(2, 1fr); }
-}
-.emoji-button-render {
-  display: inline-block;
-  font-size: 3rem; /* Регулирует размер эмодзи, сделайте больше/меньше при необходимости */
-  padding: 10px;
-  line-height: 1;
-  user-select: none;
-}
-
-CSS
-/* Стили для выравнивания эмодзи-заглушек вместо картинок */
-.gallery-buttons figure {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end; /* Выравнивает подписи по нижней линии */
-}
-
-.emoji-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  /* Имитируем размеры соседней синей кнопки */
-  width: 50px;  
-  height: 50px;
-  
-  /* Делаем красивую подложку, чтобы они гармонировали с кнопкой транскрибации */
-  background-color: #2b364a; /* Темный фон под цвет темы сайта */
-  border-radius: 6px;        /* Скругление углов */
-  border: 1px solid #3f4e6b; /* Легкая рамка */
-  
-  /* Размер самого эмодзи */
-  font-size: 1.8rem; 
-  line-select: none;
-  margin-bottom: 10px;       /* Отступ до подписи figcaption */
+  .gallery-thumbs figure { width: 120px; }
 }
